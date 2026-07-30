@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer
       aria-label="Pie de página corporativo de Promedic Antequera"
-      style={{ backgroundColor: '#a7d9dd', color: '#ffffff', width: '100%' }}
+      style={{ backgroundColor: '#a7d9dd', color: '#ffffff', width: '100%', overflowX: 'hidden' }}
     >
 
       {/* ── UPPER SECTION ── */}
@@ -177,14 +177,23 @@ export default function Footer() {
 
       {/* ── LOWER BASELINE — Mobile ── */}
       <div className="flex md:hidden flex-col gap-3" style={{ padding: '16px 24px 32px' }}>
-        <nav aria-label="Enlaces legales y de privacidad" style={{ display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', justifyContent: 'space-between', alignItems: 'center', width: '100%', gap: '4px' }}>
+        <nav
+          aria-label="Enlaces legales y de privacidad"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, auto)',
+            justifyContent: 'start',
+            gap: '6px 16px',
+            width: '100%',
+          }}
+        >
           {['Aviso de Privacidad', 'Términos y Condiciones', 'Política de Cookies', 'Preferencia de Cookies'].map((label) => (
-            <a key={label} href="#" style={{ color: '#167589', fontSize: '0.62rem', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap' }}>
+            <a key={label} href="#" style={{ color: '#167589', fontSize: '0.62rem', fontWeight: 600, textDecoration: 'none' }}>
               {label}
             </a>
           ))}
         </nav>
-        <p style={{ color: 'rgba(255,255,255,0.80)', fontSize: '0.72rem', fontWeight: 400, margin: 0 }}>
+        <p style={{ color: 'rgba(255,255,255,0.80)', fontSize: '0.68rem', fontWeight: 400, margin: 0 }}>
           Copyright © {currentYear} Promedic Antequera - Todos los derechos reservados.
         </p>
       </div>
