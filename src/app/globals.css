@@ -1,26 +1,242 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ─────────────────────────────────────────
+   PROMEDIC ANTEQUERA — Design System Tokens
+   ───────────────────────────────────────── */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Brand Colors */
+  --color-brand-primary:   #167589;
+  --color-brand-secondary: #a7d9dd;
+
+  /* Neutral Palette */
+  --color-neutral-white:   #ffffff;
+  --color-neutral-50:      #f8fafc;
+  --color-neutral-600:     #475569;
+  --color-neutral-950:     #020617;
+
+  /* Typography */
+  --font-sans: var(--font-montserrat);
+
+  /* Custom spacing / radius tokens */
+  --radius-pill: 9999px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─────────────────────────────────────────
+   Global Reset & Base
+   ───────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
+  background-color: #ffffff;
+  color: var(--color-neutral-950);
+  overflow-x: hidden;
+}
+
+/* ─────────────────────────────────────────
+   Keyframe Animations
+   ───────────────────────────────────────── */
+
+/* Floating effect for product icons on mobile */
+@keyframes float-icon {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* Icon sway on hover (desktop) */
+@keyframes sway-icon {
+  0%, 100% { transform: scale(1.1) rotate(-4deg); }
+  50%       { transform: scale(1.1) rotate(4deg); }
+}
+
+/* Marquee infinite scroll for brand logos on mobile */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Fade-in for hero content */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─────────────────────────────────────────
+   Utility Classes
+   ───────────────────────────────────────── */
+
+.animate-float-icon {
+  animation: float-icon 3s ease-in-out infinite;
+}
+
+.animate-sway-icon {
+  animation: sway-icon 0.5s ease-in-out infinite;
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out both;
+}
+
+.animate-fade-up-delay-1 {
+  animation: fade-up 0.8s ease-out 0.15s both;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fade-up 0.8s ease-out 0.3s both;
+}
+
+.animate-fade-up-delay-3 {
+  animation: fade-up 0.8s ease-out 0.45s both;
+}
+
+/* Screen-reader-only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Nav capsule: padding horizontal forzado en px para independizarse de la escala de Tailwind v4 */
+.nav-capsule {
+  padding-left: 20px;
+  padding-right: 20px;
+  gap: 12px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 767px) {
+  .nav-capsule { display: none; }
+}
+
+/* Botón CTA WhatsApp: padding horizontal forzado en px para garantizar centrado del contenido */
+.btn-cta-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-left: 28px;
+  padding-right: 28px;
+  height: 44px;
+  background-color: #ffffff;
+  color: #167589;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+}
+
+.btn-cta-whatsapp:hover {
+  background-color: #f8fafc;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+}
+
+@media (max-width: 640px) {
+  .btn-cta-whatsapp {
+    padding-left: 16px;
+    padding-right: 16px;
+    height: 38px;
+    font-size: 0.75rem;
+    gap: 6px;
+  }
+}
+
+/* Botón CTA Hero: padding horizontal forzado en px */
+.btn-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding-left: 36px;
+  padding-right: 36px;
+  height: 44px;
+  margin-top: 8px;
+  background-color: #167589;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-hero-cta:hover {
+  background-color: rgba(22, 117, 137, 0.88);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
+}
+
+/* Pill button base */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-pill:focus-visible {
+  outline: 3px solid var(--color-brand-secondary);
+  outline-offset: 3px;
+}
+
+/* Products Section — Grid responsivo */
+.products-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 640px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Products Section — Tarjeta hover */
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(22, 117, 137, 0.22);
 }
