@@ -27,7 +27,7 @@ export default function Footer() {
         {/* Col 1 — Logo + Tagline */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
           <Link
-            href="#hero"
+            href="/"
             aria-label="Promedic Antequera — Volver al inicio"
             style={{ display: 'inline-flex', alignSelf: 'flex-start' }}
           >

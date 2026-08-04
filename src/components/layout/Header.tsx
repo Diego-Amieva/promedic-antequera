@@ -3,18 +3,19 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
-  { name: "Inicio", href: "#" },
-  { name: "Productos", href: "#" },
-  { name: "Preguntas frecuentes", href: "#" },
-  { name: "Facturación", href: "#" },
+  { name: "Inicio", href: "/" },
+  { name: "Productos", href: "/productos" },
+  { name: "Preguntas frecuentes", href: "/#confianza" },
+  { name: "Facturación", href: "/#contacto" },
 ];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("Inicio");
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,12 +65,16 @@ export default function Header() {
         {/* COL 2 — CÁPSULA CENTRAL (DESKTOP) con efecto Liquid Glass intacto */}
         <nav className="nav-capsule hidden md:flex">
           {NAV_LINKS.map((link) => {
-            const isActive = activeTab === link.name;
+            // Anchor-only links (/#section) are never a "current page" — only real routes match
+            const isActive = link.href.startsWith("/#")
+              ? false
+              : link.href === "/"
+              ? pathname === "/"
+              : (pathname ?? "").startsWith(link.href);
             return (
               <Link
                 key={link.name}
                 href={link.href}
-                onClick={() => setActiveTab(link.name)}
                 className={`transition-all whitespace-nowrap ${
                   isActive
                     ? "bg-[#167589] text-white rounded-full font-bold text-sm tracking-wide shadow-md flex items-center justify-center"
@@ -157,15 +162,16 @@ export default function Header() {
         >
           <div className="flex flex-col gap-3 mt-2">
             {NAV_LINKS.map((link) => {
-              const isActive = activeTab === link.name;
+              const isActive = link.href.startsWith("/#")
+                ? false
+                : link.href === "/"
+                ? pathname === "/"
+                : (pathname ?? "").startsWith(link.href);
               return (
                 <Link
                   key={link.name}
                   href={link.href}
-                  onClick={() => {
-                    setActiveTab(link.name);
-                    setIsOpen(false);
-                  }}
+                  onClick={() => setIsOpen(false)}
                   className={`text-lg font-bold py-3.5 px-6 rounded-2xl transition-all flex items-center justify-between ${
                     isActive ? "bg-white text-[#167589] shadow-lg" : "text-white bg-white/10 hover:bg-white/20"
                   }`}

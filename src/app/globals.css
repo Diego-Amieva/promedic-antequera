@@ -105,6 +105,39 @@ body {
   animation: fade-up 0.8s ease-out 0.45s both;
 }
 
+/* ─────────────────────────────────────────
+   Products Hero — Idle Gravity Float (Mobile + Desktop fallback)
+   On desktop the parallax spring replaces this via JS.
+   ───────────────────────────────────────── */
+
+@keyframes products-idle-float {
+  0%,  100% { transform: translateY(0px)   rotate(0deg);    }
+  30%        { transform: translateY(-8px)  rotate(-0.6deg); }
+  60%        { transform: translateY(-4px)  rotate(0.4deg);  }
+  80%        { transform: translateY(-9px)  rotate(-0.3deg); }
+}
+
+/* Fade-down for mobile drawer */
+@keyframes fade-down {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-down {
+  animation: fade-down 0.3s ease-out both;
+}
+
+.animate-products-idle-float {
+  animation: products-idle-float 5s ease-in-out infinite;
+}
+
+/* Desktop: suppress CSS idle float — JS spring parallax takes over */
+@media (pointer: fine) {
+  .animate-products-idle-float {
+    animation: none;
+  }
+}
+
 /* Screen-reader-only utility */
 .sr-only {
   position: absolute;

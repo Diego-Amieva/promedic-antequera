@@ -59,7 +59,7 @@ export default function HeroSection() {
 
         {/* Single CTA Button */}
         <Link
-          href="#productos"
+          href="/productos"
           aria-label="Conoce nuestro catálogo de productos médicos"
           className="btn-hero-cta"
         >
