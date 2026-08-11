@@ -335,7 +335,15 @@ function FaqAccordionItem({
           transition: "max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
         }}
       >
-        <div className="px-6 pb-6 pt-2 sm:px-8 sm:pb-8 text-slate-600 text-sm md:text-[0.925rem] leading-relaxed">
+        <div
+            style={{
+              padding: "20px 32px 36px 32px",
+              borderTop: "1px solid rgba(226, 232, 240, 0.8)",
+              color: "#475569",
+              fontSize: "0.925rem",
+              lineHeight: 1.7,
+            }}
+          >
           {faq.answer}
         </div>
       </div>
