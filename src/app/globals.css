@@ -177,6 +177,26 @@ body {
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
 }
 
+.nav-capsule a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0 16px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+}
+
+header:not(.is-scrolled) .nav-capsule a:not(.active-nav-link):hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff !important;
+}
+
+header.is-scrolled .nav-capsule a:not(.active-nav-link):hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #167589 !important;
+}
+
 @media (max-width: 767px) {
   .nav-capsule { display: none; }
 }

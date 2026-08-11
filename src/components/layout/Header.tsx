@@ -35,7 +35,7 @@ export default function Header() {
     "brightness(0) saturate(100%) invert(34%) sepia(91%) saturate(740%) hue-rotate(141deg) brightness(92%) contrast(94%)";
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 w-full flex justify-center pt-6 md:pt-10 pb-4 px-4 sm:px-6 md:px-12 lg:px-16 bg-transparent">
+    <header className={`fixed top-0 inset-x-0 z-50 w-full flex justify-center pt-6 md:pt-10 pb-4 px-4 sm:px-6 md:px-12 lg:px-16 bg-transparent transition-all duration-300 ${isScrolled ? "is-scrolled" : ""}`}>
       {/* ── HEADER CONTAINER ── */}
       <div
         className="w-full max-w-7xl flex items-center justify-between md:grid"
@@ -65,7 +65,6 @@ export default function Header() {
         {/* COL 2 — CÁPSULA CENTRAL (DESKTOP) con efecto Liquid Glass intacto */}
         <nav className="nav-capsule hidden md:flex">
           {NAV_LINKS.map((link) => {
-            // Anchor-only links (/#section) are never a "current page" — only real routes match
             const isActive = link.href.startsWith("/#")
               ? false
               : link.href === "/"
@@ -75,25 +74,13 @@ export default function Header() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`transition-all whitespace-nowrap ${
+                className={`whitespace-nowrap text-sm tracking-wide ${
                   isActive
-                    ? "bg-[#167589] text-white rounded-full font-bold text-sm tracking-wide shadow-md flex items-center justify-center"
-                    : "font-medium text-sm transition-colors tracking-wide px-3 py-2 block hover:opacity-80"
+                    ? "active-nav-link bg-[#167589] text-white font-bold shadow-sm"
+                    : `font-medium ${
+                        isScrolled ? "text-[#167589]" : "text-white/90"
+                      }`
                 }`}
-                style={
-                  isActive
-                    ? {
-                        paddingLeft: "20px",
-                        paddingRight: "20px",
-                        paddingTop: "7px",
-                        paddingBottom: "7px",
-                        color: "#ffffff",
-                      }
-                    : {
-                        color: isScrolled ? "#167589" : "rgba(255, 255, 255, 0.90)",
-                        fontWeight: isScrolled ? 700 : 500,
-                      }
-                }
               >
                 {link.name}
               </Link>
