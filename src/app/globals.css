@@ -55,6 +55,16 @@ body {
   50%       { transform: translateY(-8px); }
 }
 
+/* CTA illustration float up — strictly upward motion */
+@keyframes cta-float-up {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+.animate-cta-float-up {
+  animation: cta-float-up 4s ease-in-out infinite;
+}
+
 /* Icon sway on hover (desktop) */
 @keyframes sway-icon {
   0%, 100% { transform: scale(1.1) rotate(-4deg); }
@@ -236,6 +246,37 @@ body {
   background-color: rgba(22, 117, 137, 0.88);
   transform: translateY(-2px);
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
+}
+
+/* Botón CTA Outline (para banners oscuros / gradientes) */
+.btn-outline-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-left: 28px;
+  padding-right: 28px;
+  height: 48px;
+  background-color: transparent;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-outline-cta:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.25);
 }
 
 /* Pill button base */

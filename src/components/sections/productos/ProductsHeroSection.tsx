@@ -142,7 +142,7 @@ export default function ProductsHeroSection() {
       >
         {/* Sub-headline 1 */}
         <p className="text-lg sm:text-2xl font-medium text-white/90 tracking-wide mb-2 animate-fade-up">
-          Explora nuestra variedad en
+          Descubre nuestra variedad en
         </p>
 
         {/* Main Headline */}
@@ -152,7 +152,7 @@ export default function ProductsHeroSection() {
 
         {/* Sub-headline 2 */}
         <p className="mt-8 mb-10 text-sm sm:text-lg text-white/90 max-w-2xl mx-auto font-normal leading-relaxed text-center animate-fade-up-delay-2">
-          Conoce la calidad y el respaldo de Promedic Antequera<br className="hidden sm:block" /> a través de nuestros catálogos por marca
+          Conoce la calidad y el respaldo de Promedic Antequera<br className="hidden sm:block" /> a través de nuestros catálogos por marca.
         </p>
 
         {/* CTA Button — matching Home Hero btn-hero-cta exactly */}

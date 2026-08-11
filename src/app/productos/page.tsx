@@ -3,6 +3,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ProductsHeroSection from "@/components/sections/productos/ProductsHeroSection";
 import BrandCatalogSection from "@/components/sections/productos/BrandCatalogSection";
+import ProductsCtaSection from "@/components/sections/productos/ProductsCtaSection";
 
 /* ─────────────────────────────────────────
    SEO Metadata — /productos
@@ -34,6 +35,9 @@ export default function ProductosPage() {
 
         {/* Brand Catalog Grid — 3×2 cards with animated icons */}
         <BrandCatalogSection />
+
+        {/* CTA Banner — ilustración + gradiente + botones */}
+        <ProductsCtaSection />
       </main>
 
       <Footer />

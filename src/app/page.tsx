@@ -12,8 +12,6 @@
  *   ✅ ContactSection  — Formulario B2B
  *
  * MÓDULOS PENDIENTES (se agregarán iterativamente):
- *   ✅ LocationSection — Google Maps
- *   ✅ ContactSection  — Formulario B2B
  *   ✅ Footer          — Cierre corporativo
  */
 
