@@ -162,16 +162,17 @@ export default function ContactBubble() {
           role="dialog"
           aria-modal="true"
           aria-labelledby="modal-contact-title"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/60 backdrop-blur-md animate-fade-in"
+          className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-4 sm:p-6 bg-slate-950/60 backdrop-blur-md animate-fade-in overflow-y-auto"
           onClick={() => setIsModalOpen(false)}
         >
           {/* Modal Container */}
           <div
-            className="relative w-full max-w-xl bg-white rounded-[28px] overflow-hidden"
+            className="relative w-full max-w-lg bg-white rounded-[24px] overflow-hidden my-4 sm:my-0"
             onClick={(e) => e.stopPropagation()}
             style={{
-              boxShadow: "0 32px 80px rgba(22, 117, 137, 0.28), 0 0 0 1px rgba(22,117,137,0.08)",
-              padding: "40px 44px 48px",
+              boxShadow: "0 24px 64px rgba(22, 117, 137, 0.25), 0 0 0 1px rgba(22,117,137,0.08)",
+              padding: "32px 36px 36px",
+              flexShrink: 0,
             }}
           >
             {/* Top Close Button */}
@@ -197,19 +198,19 @@ export default function ContactBubble() {
             </button>
 
             {/* Header */}
-            <div style={{ textAlign: "center", marginBottom: "36px" }}>
+            <div style={{ textAlign: "center", marginBottom: "24px" }}>
               <div
                 className="contact-lottie-container"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  width: "56px",
-                  height: "56px",
-                  borderRadius: "18px",
+                  width: "52px",
+                  height: "52px",
+                  borderRadius: "16px",
                   background: "linear-gradient(135deg, rgba(22,117,137,0.12) 0%, rgba(167,217,221,0.20) 100%)",
                   color: "#167589",
-                  marginBottom: "16px",
+                  marginBottom: "12px",
                 }}
               >
                 <div style={{ width: "26px", height: "26px" }}>
@@ -223,22 +224,22 @@ export default function ContactBubble() {
               <h2
                 id="modal-contact-title"
                 style={{
-                  fontSize: "1.6rem",
+                  fontSize: "1.35rem",
                   fontWeight: 800,
                   color: "#167589",
                   letterSpacing: "-0.02em",
                   lineHeight: 1.2,
-                  marginBottom: "10px",
+                  marginBottom: "8px",
                 }}
               >
                 ¡Estamos listos para ayudarte!
               </h2>
               <p
                 style={{
-                  fontSize: "0.9375rem",
+                  fontSize: "0.875rem",
                   color: "#64748b",
-                  lineHeight: 1.65,
-                  maxWidth: "380px",
+                  lineHeight: 1.6,
+                  maxWidth: "360px",
                   margin: "0 auto",
                 }}
               >
@@ -360,7 +361,7 @@ export default function ContactBubble() {
                 <textarea
                   name="mensaje"
                   id="modal-mensaje"
-                  rows={5}
+                  rows={3}
                   required
                   value={formData.mensaje}
                   onChange={(e) =>

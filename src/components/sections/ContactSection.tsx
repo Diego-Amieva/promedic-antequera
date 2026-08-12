@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 
 export default function ContactSection() {
@@ -11,6 +12,7 @@ export default function ContactSection() {
     mensaje: "",
   });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [consentChecked, setConsentChecked] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,6 +20,7 @@ export default function ContactSection() {
     setTimeout(() => {
       setStatus("success");
       setFormData({ nombre: "", empresa: "", correo: "", mensaje: "" });
+      setConsentChecked(false);
     }, 1500);
   };
 
@@ -205,16 +208,76 @@ export default function ContactSection() {
             />
           </div>
 
+          {/* Consent Checkbox */}
+          <label
+            htmlFor="home-consent"
+            style={{
+              display: "flex",
+              alignItems: "flex-start",
+              gap: "12px",
+              cursor: "pointer",
+              marginTop: "4px",
+            }}
+          >
+            <input
+              type="checkbox"
+              id="home-consent"
+              name="consent"
+              required
+              checked={consentChecked}
+              onChange={(e) => setConsentChecked(e.target.checked)}
+              style={{
+                width: "18px",
+                height: "18px",
+                marginTop: "2px",
+                flexShrink: 0,
+                accentColor: "#167589",
+                cursor: "pointer",
+              }}
+            />
+            <span
+              style={{
+                fontSize: "0.78rem",
+                color: "rgba(255,255,255,0.85)",
+                lineHeight: 1.6,
+                fontWeight: 400,
+              }}
+            >
+              Acepto los{" "}
+              <Link
+                href="/terminos-y-condiciones"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#a7d9dd", textDecoration: "underline", fontWeight: 600 }}
+              >
+                Términos y Condiciones
+              </Link>{" "}
+              y el tratamiento de mis datos personales por{" "}
+              <strong style={{ color: "#ffffff", fontWeight: 700 }}>PROMEDIC ANTEQUERA</strong>{" "}
+              para gestionar mi solicitud, de conformidad con el{" "}
+              <Link
+                href="/aviso-de-privacidad"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#a7d9dd", textDecoration: "underline", fontWeight: 600 }}
+              >
+                Aviso de Privacidad Simplificado
+              </Link>
+              .
+            </span>
+          </label>
+
           {/* Submit Button */}
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '8px' }}>
             <button
               type="submit"
-              disabled={status === "sending"}
+              disabled={status === "sending" || !consentChecked}
               className="btn-hero-cta"
               style={{
                 backgroundColor: '#a7d9dd',
                 color: '#ffffff',
-                opacity: status === "sending" ? 0.75 : 1,
+                opacity: status === "sending" || !consentChecked ? 0.55 : 1,
+                cursor: !consentChecked ? 'not-allowed' : 'pointer',
                 boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
               }}
             >
