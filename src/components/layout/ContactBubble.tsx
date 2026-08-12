@@ -1,7 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Lottie from "lottie-react";
+import messageAnimation from "../../../public/brands/animations/message.json";
 
 export default function ContactBubble() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,6 +15,7 @@ export default function ContactBubble() {
     mensaje: "",
   });
   const [status, setStatus] = useState<"idle" | "sending" | "success">("idle");
+  const [consentChecked, setConsentChecked] = useState(false);
   const pathname = usePathname();
 
   // Close modal when pressing Escape key
@@ -54,6 +58,7 @@ export default function ContactBubble() {
     setTimeout(() => {
       setStatus("success");
       setFormData({ nombre: "", empresa: "", correo: "", mensaje: "" });
+      setConsentChecked(false);
       // Auto-close modal after 2.5 seconds on success
       setTimeout(() => {
         setIsModalOpen(false);
@@ -194,6 +199,7 @@ export default function ContactBubble() {
             {/* Header */}
             <div style={{ textAlign: "center", marginBottom: "36px" }}>
               <div
+                className="contact-lottie-container"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -206,18 +212,13 @@ export default function ContactBubble() {
                   marginBottom: "16px",
                 }}
               >
-                <svg
-                  width="26"
-                  height="26"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                </svg>
+                <div style={{ width: "26px", height: "26px" }}>
+                  <Lottie
+                    animationData={messageAnimation}
+                    loop={true}
+                    autoplay={true}
+                  />
+                </div>
               </div>
               <h2
                 id="modal-contact-title"
@@ -376,11 +377,71 @@ export default function ContactBubble() {
                 />
               </div>
 
+              {/* Consent Checkbox */}
+              <label
+                htmlFor="modal-consent"
+                style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: "12px",
+                  cursor: "pointer",
+                  paddingTop: "4px",
+                }}
+              >
+                <input
+                  type="checkbox"
+                  id="modal-consent"
+                  name="consent"
+                  required
+                  checked={consentChecked}
+                  onChange={(e) => setConsentChecked(e.target.checked)}
+                  style={{
+                    width: "18px",
+                    height: "18px",
+                    marginTop: "2px",
+                    flexShrink: 0,
+                    accentColor: "#167589",
+                    cursor: "pointer",
+                    borderRadius: "4px",
+                  }}
+                />
+                <span
+                  style={{
+                    fontSize: "0.78rem",
+                    color: "#475569",
+                    lineHeight: 1.6,
+                    fontWeight: 400,
+                  }}
+                >
+                  Acepto los{" "}
+                  <Link
+                    href="/terminos-y-condiciones"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "#167589", textDecoration: "underline", fontWeight: 600 }}
+                  >
+                    Términos y Condiciones
+                  </Link>{" "}
+                  y el tratamiento de mis datos personales por{" "}
+                  <strong style={{ color: "#0f172a", fontWeight: 700 }}>PROMEDIC ANTEQUERA</strong>{" "}
+                  para gestionar mi solicitud, de conformidad con el{" "}
+                  <Link
+                    href="/aviso-de-privacidad"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "#167589", textDecoration: "underline", fontWeight: 600 }}
+                  >
+                    Aviso de Privacidad Simplificado
+                  </Link>
+                  .
+                </span>
+              </label>
+
               {/* Submit Button */}
-              <div style={{ paddingTop: "12px" }}>
+              <div style={{ paddingTop: "4px" }}>
                 <button
                   type="submit"
-                  disabled={status === "sending"}
+                  disabled={status === "sending" || !consentChecked}
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -398,11 +459,11 @@ export default function ContactBubble() {
                     textTransform: "uppercase",
                     borderRadius: "9999px",
                     border: "none",
-                    cursor: "pointer",
                     fontFamily: "inherit",
                     boxShadow: "0 8px 24px rgba(22, 117, 137, 0.35)",
                     transition: "all 0.25s ease",
-                    opacity: status === "sending" ? 0.75 : 1,
+                    opacity: status === "sending" || !consentChecked ? 0.55 : 1,
+                    cursor: !consentChecked ? "not-allowed" : "pointer",
                   }}
                   onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.boxShadow = "0 12px 32px rgba(22, 117, 137, 0.45)"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(22, 117, 137, 0.35)"; }}

@@ -334,3 +334,12 @@ header.is-scrolled .nav-capsule a:not(.active-nav-link):hover {
   transform: translateY(-6px);
   box-shadow: 0 16px 48px rgba(22, 117, 137, 0.22);
 }
+
+/* Override contact modal Lottie animation colors to match brand primary */
+.contact-lottie-container svg path {
+  stroke: #167589 !important;
+}
+.contact-lottie-container svg fill,
+.contact-lottie-container svg path[fill] {
+  fill: #167589 !important;
+}

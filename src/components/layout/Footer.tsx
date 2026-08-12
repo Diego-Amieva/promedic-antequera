@@ -164,11 +164,24 @@ export default function Footer() {
         }}
       >
         <nav aria-label="Enlaces legales y de privacidad" style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
-          {['Aviso de Privacidad', 'Términos y Condiciones', 'Política de Cookies', 'Preferencia de Cookies'].map((label) => (
-            <a key={label} href="#" style={{ color: '#167589', fontSize: '0.75rem', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap' }}>
-              {label}
-            </a>
-          ))}
+          <Link
+            href="/aviso-de-privacidad"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#167589', fontSize: '0.75rem', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap' }}
+          >
+            Aviso de Privacidad
+          </Link>
+          <Link
+            href="/terminos-y-condiciones"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#167589', fontSize: '0.75rem', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap' }}
+          >
+            Términos y Condiciones
+          </Link>
+          <a href="#" style={{ color: '#167589', fontSize: '0.75rem', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap' }}>Política de Cookies</a>
+          <a href="#" style={{ color: '#167589', fontSize: '0.75rem', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap' }}>Preferencia de Cookies</a>
         </nav>
         <p style={{ color: 'rgba(255,255,255,0.80)', fontSize: '0.75rem', fontWeight: 400, margin: 0, whiteSpace: 'nowrap' }}>
           Copyright © {currentYear} Promedic Antequera - Todos los derechos reservados.
@@ -187,11 +200,24 @@ export default function Footer() {
             width: '100%',
           }}
         >
-          {['Aviso de Privacidad', 'Términos y Condiciones', 'Política de Cookies', 'Preferencia de Cookies'].map((label) => (
-            <a key={label} href="#" style={{ color: '#167589', fontSize: '0.62rem', fontWeight: 600, textDecoration: 'none' }}>
-              {label}
-            </a>
-          ))}
+          <Link
+            href="/aviso-de-privacidad"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#167589', fontSize: '0.62rem', fontWeight: 600, textDecoration: 'none' }}
+          >
+            Aviso de Privacidad
+          </Link>
+          <Link
+            href="/terminos-y-condiciones"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#167589', fontSize: '0.62rem', fontWeight: 600, textDecoration: 'none' }}
+          >
+            Términos y Condiciones
+          </Link>
+          <a href="#" style={{ color: '#167589', fontSize: '0.62rem', fontWeight: 600, textDecoration: 'none' }}>Política de Cookies</a>
+          <a href="#" style={{ color: '#167589', fontSize: '0.62rem', fontWeight: 600, textDecoration: 'none' }}>Preferencia de Cookies</a>
         </nav>
         <p style={{ color: 'rgba(255,255,255,0.80)', fontSize: '0.68rem', fontWeight: 400, margin: 0 }}>
           Copyright © {currentYear} Promedic Antequera - Todos los derechos reservados.
