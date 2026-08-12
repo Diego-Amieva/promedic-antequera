@@ -343,3 +343,18 @@ header.is-scrolled .nav-capsule a:not(.active-nav-link):hover {
 .contact-lottie-container svg path[fill] {
   fill: #167589 !important;
 }
+
+/* Footer link hover effects */
+.footer-contact-link {
+  transition: color 0.2s ease;
+}
+.footer-contact-link:hover {
+  color: #167589 !important;
+}
+
+.footer-legal-link {
+  transition: color 0.2s ease;
+}
+.footer-legal-link:hover {
+  color: #ffffff !important;
+}
