@@ -54,7 +54,7 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 inset-x-0 z-50 w-full flex justify-center pt-6 md:pt-10 pb-4 px-4 sm:px-6 md:px-12 lg:px-16 bg-transparent transition-all duration-300 ${isScrolled ? "is-scrolled" : ""} ${isLegalPage ? "legal-page" : ""}`}
+        className={`fixed top-0 inset-x-0 z-50 w-full flex justify-center pt-7 md:pt-10 pb-4 px-5 sm:px-7 md:px-12 lg:px-16 bg-transparent transition-all duration-300 ${isScrolled ? "is-scrolled" : ""} ${isLegalPage ? "legal-page" : ""}`}
       >
         {/* ── HEADER CONTAINER ── */}
         <div
