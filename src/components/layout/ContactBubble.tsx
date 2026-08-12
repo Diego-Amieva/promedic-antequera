@@ -66,24 +66,25 @@ export default function ContactBubble() {
   const inputStyle: React.CSSProperties = {
     display: "block",
     width: "100%",
-    paddingLeft: "46px",
-    paddingRight: "16px",
-    paddingTop: "12px",
-    paddingBottom: "12px",
+    paddingLeft: "50px",
+    paddingRight: "20px",
+    paddingTop: "16px",
+    paddingBottom: "16px",
     background: "rgba(248, 250, 252, 0.95)",
     border: "1.5px solid rgba(203, 213, 225, 0.8)",
-    borderRadius: "14px",
+    borderRadius: "16px",
     color: "#0f172a",
-    fontSize: "0.875rem",
+    fontSize: "0.9375rem",
     fontWeight: 500,
     outline: "none",
     transition: "all 0.2s ease",
     fontFamily: "inherit",
+    boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
   };
 
   const iconStyle: React.CSSProperties = {
     position: "absolute",
-    left: "14px",
+    left: "16px",
     top: "50%",
     transform: "translateY(-50%)",
     pointerEvents: "none",
@@ -161,10 +162,11 @@ export default function ContactBubble() {
         >
           {/* Modal Container */}
           <div
-            className="relative w-full max-w-lg bg-white/95 backdrop-blur-xl border border-white/80 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden transition-all transform scale-100"
+            className="relative w-full max-w-xl bg-white rounded-[28px] overflow-hidden"
             onClick={(e) => e.stopPropagation()}
             style={{
-              boxShadow: "0 24px 64px rgba(22, 117, 137, 0.25)",
+              boxShadow: "0 32px 80px rgba(22, 117, 137, 0.28), 0 0 0 1px rgba(22,117,137,0.08)",
+              padding: "40px 44px 48px",
             }}
           >
             {/* Top Close Button */}
@@ -172,7 +174,7 @@ export default function ContactBubble() {
               type="button"
               onClick={() => setIsModalOpen(false)}
               aria-label="Cerrar ventana de contacto"
-              className="absolute top-4 right-4 flex items-center justify-center w-9 h-9 rounded-full bg-slate-100/80 text-slate-500 hover:bg-slate-200 hover:text-slate-800 transition-colors focus:outline-none"
+              className="absolute top-5 right-5 flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 text-slate-400 hover:bg-slate-200 hover:text-slate-700 transition-all focus:outline-none"
             >
               <svg
                 width="18"
@@ -190,11 +192,23 @@ export default function ContactBubble() {
             </button>
 
             {/* Header */}
-            <div className="text-center mb-6">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-[#167589]/10 text-[#167589] mb-3">
+            <div style={{ textAlign: "center", marginBottom: "36px" }}>
+              <div
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "56px",
+                  height: "56px",
+                  borderRadius: "18px",
+                  background: "linear-gradient(135deg, rgba(22,117,137,0.12) 0%, rgba(167,217,221,0.20) 100%)",
+                  color: "#167589",
+                  marginBottom: "16px",
+                }}
+              >
                 <svg
-                  width="24"
-                  height="24"
+                  width="26"
+                  height="26"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -207,17 +221,32 @@ export default function ContactBubble() {
               </div>
               <h2
                 id="modal-contact-title"
-                className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight"
+                style={{
+                  fontSize: "1.6rem",
+                  fontWeight: 800,
+                  color: "#167589",
+                  letterSpacing: "-0.02em",
+                  lineHeight: 1.2,
+                  marginBottom: "10px",
+                }}
               >
                 ¡Estamos listos para ayudarte!
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
+              <p
+                style={{
+                  fontSize: "0.9375rem",
+                  color: "#64748b",
+                  lineHeight: 1.65,
+                  maxWidth: "380px",
+                  margin: "0 auto",
+                }}
+              >
                 Un asesor especializado procesará tu solicitud para enviarte una propuesta comercial a la medida.
               </p>
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-3.5">
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
               {/* Nombre */}
               <div className="relative">
                 <label htmlFor="modal-nombre" className="sr-only">
@@ -330,16 +359,17 @@ export default function ContactBubble() {
                 <textarea
                   name="mensaje"
                   id="modal-mensaje"
-                  rows={3}
+                  rows={5}
                   required
                   value={formData.mensaje}
                   onChange={(e) =>
                     setFormData({ ...formData, mensaje: e.target.value })
                   }
-                  placeholder="Mensaje..."
+                  placeholder="Cuéntanos en qué podemos ayudarte..."
                   style={{
                     ...inputStyle,
-                    paddingLeft: "16px",
+                    paddingLeft: "20px",
+                    paddingTop: "14px",
                     resize: "none",
                   }}
                   className="focus:border-[#167589] focus:ring-2 focus:ring-[#167589]/20"
@@ -347,11 +377,35 @@ export default function ContactBubble() {
               </div>
 
               {/* Submit Button */}
-              <div className="pt-2 flex justify-center">
+              <div style={{ paddingTop: "12px" }}>
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="w-full sm:w-auto h-11 px-8 rounded-full font-bold text-xs tracking-wider uppercase text-white bg-[#167589] hover:bg-[#125d6d] shadow-lg shadow-[#167589]/25 transition-all flex items-center justify-center gap-2 disabled:opacity-75 focus:outline-none"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "10px",
+                    width: "100%",
+                    height: "54px",
+                    paddingLeft: "32px",
+                    paddingRight: "32px",
+                    background: "linear-gradient(135deg, #167589 0%, #1a8fa8 100%)",
+                    color: "#ffffff",
+                    fontWeight: 700,
+                    fontSize: "0.8125rem",
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    borderRadius: "9999px",
+                    border: "none",
+                    cursor: "pointer",
+                    fontFamily: "inherit",
+                    boxShadow: "0 8px 24px rgba(22, 117, 137, 0.35)",
+                    transition: "all 0.25s ease",
+                    opacity: status === "sending" ? 0.75 : 1,
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.boxShadow = "0 12px 32px rgba(22, 117, 137, 0.45)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(22, 117, 137, 0.35)"; }}
                 >
                   {status === "sending" ? (
                     <>
