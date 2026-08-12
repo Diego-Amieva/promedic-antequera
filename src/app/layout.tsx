@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import ContactBubble from "@/components/layout/ContactBubble";
 
 /* ─────────────────────────────────────────
    Font: Montserrat via next/font/google
@@ -56,7 +57,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={montserrat.variable}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        <ContactBubble />
+      </body>
     </html>
   );
 }
