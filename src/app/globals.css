@@ -193,7 +193,19 @@ header:not(.is-scrolled) .nav-capsule a:not(.active-nav-link):hover {
 }
 
 header.is-scrolled .nav-capsule a:not(.active-nav-link):hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(22, 117, 137, 0.10);
+  color: #167589 !important;
+}
+
+/* Legal pages (white bg) — capsule adapts for contrast */
+header.legal-page .nav-capsule {
+  background: rgba(22, 117, 137, 0.06);
+  border-color: rgba(22, 117, 137, 0.18);
+  box-shadow: 0 4px 24px rgba(22, 117, 137, 0.08);
+}
+
+header.legal-page .nav-capsule a:not(.active-nav-link):hover {
+  background: rgba(22, 117, 137, 0.10);
   color: #167589 !important;
 }
 

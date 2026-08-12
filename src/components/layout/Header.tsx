@@ -12,10 +12,15 @@ const NAV_LINKS = [
   { name: "Facturación", href: "/#contacto" },
 ];
 
+// Pages with white backgrounds where the navbar needs to adapt
+const LEGAL_PAGES = ["/terminos-y-condiciones", "/aviso-de-privacidad"];
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+
+  const isLegalPage = LEGAL_PAGES.includes(pathname ?? "");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,12 +35,22 @@ export default function Header() {
     };
   }, []);
 
-  // Filter to convert white SVG logo to Brand Primary (#167589) on white background sections
-  const brandLogoFilter =
-    "brightness(0) saturate(100%) invert(34%) sepia(91%) saturate(740%) hue-rotate(141deg) brightness(92%) contrast(94%)";
+  /**
+   * Logo filter logic:
+   * - Legal pages (white bg) → no filter → default 2-color SVG
+   * - Regular pages, not scrolled (hero gradient bg) → white (invert)
+   * - Regular pages, scrolled (white/light bg) → no filter → default 2-color SVG
+   */
+  const logoFilter = isLegalPage
+    ? "none"                                    // Legal pages: always default
+    : isScrolled
+    ? "none"                                    // Scrolled on white bg: default
+    : "brightness(0) invert(1)";               // On dark hero gradient: white
 
   return (
-    <header className={`fixed top-0 inset-x-0 z-50 w-full flex justify-center pt-6 md:pt-10 pb-4 px-4 sm:px-6 md:px-12 lg:px-16 bg-transparent transition-all duration-300 ${isScrolled ? "is-scrolled" : ""}`}>
+    <header
+      className={`fixed top-0 inset-x-0 z-50 w-full flex justify-center pt-6 md:pt-10 pb-4 px-4 sm:px-6 md:px-12 lg:px-16 bg-transparent transition-all duration-300 ${isScrolled ? "is-scrolled" : ""} ${isLegalPage ? "legal-page" : ""}`}
+    >
       {/* ── HEADER CONTAINER ── */}
       <div
         className="w-full max-w-7xl flex items-center justify-between md:grid"
@@ -56,7 +71,7 @@ export default function Header() {
               src="/images/Promedic.svg"
               width={160}
               style={{
-                filter: isScrolled ? brandLogoFilter : "none",
+                filter: logoFilter,
               }}
             />
           </Link>
@@ -65,7 +80,10 @@ export default function Header() {
         {/* COL 2 — CÁPSULA CENTRAL (DESKTOP) con efecto Liquid Glass intacto */}
         <nav className="nav-capsule hidden md:flex">
           {NAV_LINKS.map((link) => {
-            const isActive = link.href.startsWith("/#")
+            // On legal pages, no item is ever active
+            const isActive = isLegalPage
+              ? false
+              : link.href.startsWith("/#")
               ? false
               : link.href === "/"
               ? pathname === "/"
@@ -78,7 +96,7 @@ export default function Header() {
                   isActive
                     ? "active-nav-link bg-[#167589] text-white font-bold shadow-sm"
                     : `font-medium ${
-                        isScrolled ? "text-[#167589]" : "text-white/90"
+                        isLegalPage || isScrolled ? "text-[#167589]" : "text-white/90"
                       }`
                 }`}
               >
@@ -120,7 +138,7 @@ export default function Header() {
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/15 backdrop-blur-md border border-white/25 hover:bg-white/25 transition-all shadow-md focus:outline-none"
             style={{
-              color: isScrolled ? "#167589" : "#ffffff",
+              color: isLegalPage || isScrolled ? "#167589" : "#ffffff",
             }}
             aria-label={isOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
             aria-expanded={isOpen}
@@ -149,7 +167,9 @@ export default function Header() {
         >
           <div className="flex flex-col gap-3 mt-2">
             {NAV_LINKS.map((link) => {
-              const isActive = link.href.startsWith("/#")
+              const isActive = isLegalPage
+                ? false
+                : link.href.startsWith("/#")
                 ? false
                 : link.href === "/"
                 ? pathname === "/"
