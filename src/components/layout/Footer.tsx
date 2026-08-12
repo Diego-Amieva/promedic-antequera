@@ -166,16 +166,12 @@ export default function Footer() {
         <nav aria-label="Enlaces legales y de privacidad" style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
           <Link
             href="/aviso-de-privacidad"
-            target="_blank"
-            rel="noopener noreferrer"
             style={{ color: '#167589', fontSize: '0.75rem', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap' }}
           >
             Aviso de Privacidad
           </Link>
           <Link
             href="/terminos-y-condiciones"
-            target="_blank"
-            rel="noopener noreferrer"
             style={{ color: '#167589', fontSize: '0.75rem', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap' }}
           >
             Términos y Condiciones
@@ -202,16 +198,12 @@ export default function Footer() {
         >
           <Link
             href="/aviso-de-privacidad"
-            target="_blank"
-            rel="noopener noreferrer"
             style={{ color: '#167589', fontSize: '0.62rem', fontWeight: 600, textDecoration: 'none' }}
           >
             Aviso de Privacidad
           </Link>
           <Link
             href="/terminos-y-condiciones"
-            target="_blank"
-            rel="noopener noreferrer"
             style={{ color: '#167589', fontSize: '0.62rem', fontWeight: 600, textDecoration: 'none' }}
           >
             Términos y Condiciones
