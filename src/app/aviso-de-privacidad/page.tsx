@@ -72,7 +72,9 @@ export default function AvisoPrivacidadPage() {
               borderRadius: "24px",
               border: "1px solid rgba(203, 213, 225, 0.5)",
               boxShadow: "0 4px 24px rgba(0,0,0,0.05)",
-              padding: "48px 52px",
+              padding: "clamp(24px, 5vw, 48px) clamp(20px, 5vw, 52px)",
+              overflowWrap: "break-word",
+              wordBreak: "break-word",
             }}
           >
             {/* Update date */}

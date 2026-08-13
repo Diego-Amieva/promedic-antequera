@@ -78,7 +78,9 @@ export default function PoliticaCookiesPage() {
               borderRadius: "24px",
               border: "1px solid rgba(203, 213, 225, 0.5)",
               boxShadow: "0 4px 24px rgba(0,0,0,0.05)",
-              padding: "48px 52px",
+              padding: "clamp(24px, 5vw, 48px) clamp(20px, 5vw, 52px)",
+              overflowWrap: "break-word",
+              wordBreak: "break-word",
             }}
           >
             {/* Update date */}
@@ -337,16 +339,16 @@ export default function PoliticaCookiesPage() {
 
                 <ul style={{ margin: "0 0 16px", paddingLeft: "20px", listStyleType: "disc" }}>
                   <li style={{ marginBottom: "6px" }}>
-                    <strong style={{ color: "#0f172a" }}>Google Chrome:</strong> Configuración &gt; Privacidad y seguridad &gt; Cookies y otros datos de sitios.
+                    <strong style={{ color: "#0f172a" }}>Google Chrome: </strong>Configuración &gt; Privacidad y seguridad &gt; Cookies y otros datos de sitios.
                   </li>
                   <li style={{ marginBottom: "6px" }}>
-                    <strong style={{ color: "#0f172a" }}>Microsoft Edge:</strong> Configuración &gt; Permisos del sitio &gt; Cookies y datos del sitio.
+                    <strong style={{ color: "#0f172a" }}>Microsoft Edge: </strong>Configuración &gt; Permisos del sitio &gt; Cookies y datos del sitio.
                   </li>
                   <li style={{ marginBottom: "6px" }}>
-                    <strong style={{ color: "#0f172a" }}>Mozilla Firefox:</strong> Ajustes &gt; Privacidad &amp; Seguridad &gt; Cookies y datos del sitio.
+                    <strong style={{ color: "#0f172a" }}>Mozilla Firefox: </strong>Ajustes &gt; Privacidad &amp; Seguridad &gt; Cookies y datos del sitio.
                   </li>
                   <li style={{ marginBottom: "6px" }}>
-                    <strong style={{ color: "#0f172a" }}>Safari (macOS/iOS):</strong> Preferencias &gt; Privacidad &gt; Bloquear todas las cookies.
+                    <strong style={{ color: "#0f172a" }}>Safari (macOS/iOS): </strong>Preferencias &gt; Privacidad &gt; Bloquear todas las cookies.
                   </li>
                 </ul>
 
