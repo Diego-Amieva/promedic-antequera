@@ -180,7 +180,7 @@ export default function Footer() {
           >
             Términos y Condiciones
           </Link>
-          <a href="#" className="footer-legal-link" style={{ color: '#167589', fontSize: '0.75rem', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap' }}>Política de Cookies</a>
+          <Link href="/politica-de-cookies" className="footer-legal-link" style={{ color: '#167589', fontSize: '0.75rem', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap' }}>Política de Cookies</Link>
           <a href="#" className="footer-legal-link" style={{ color: '#167589', fontSize: '0.75rem', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap' }}>Preferencia de Cookies</a>
         </nav>
         <p style={{ color: 'rgba(255,255,255,0.80)', fontSize: '0.75rem', fontWeight: 400, margin: 0, whiteSpace: 'nowrap' }}>
@@ -214,7 +214,7 @@ export default function Footer() {
           >
             Términos y Condiciones
           </Link>
-          <a href="#" className="footer-legal-link" style={{ color: '#167589', fontSize: '0.62rem', fontWeight: 600, textDecoration: 'none' }}>Política de Cookies</a>
+          <Link href="/politica-de-cookies" className="footer-legal-link" style={{ color: '#167589', fontSize: '0.62rem', fontWeight: 600, textDecoration: 'none' }}>Política de Cookies</Link>
           <a href="#" className="footer-legal-link" style={{ color: '#167589', fontSize: '0.62rem', fontWeight: 600, textDecoration: 'none' }}>Preferencia de Cookies</a>
         </nav>
         <p style={{ color: 'rgba(255,255,255,0.80)', fontSize: '0.68rem', fontWeight: 400, margin: 0 }}>
