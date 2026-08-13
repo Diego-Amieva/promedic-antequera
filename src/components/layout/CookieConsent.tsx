@@ -139,7 +139,7 @@ function OptionRow({
             style={{
               fontSize: "0.9rem",
               fontWeight: 700,
-              color: "#0f172a",
+              color: "#167589",
               cursor: disabled ? "default" : "pointer",
             }}
           >
@@ -285,7 +285,7 @@ function CookieModal({
                   margin: "0 0 8px",
                   fontSize: "1.2rem",
                   fontWeight: 800,
-                  color: "#0f172a",
+                  color: "#167589",
                 }}
               >
                 Preferencias de cookies
