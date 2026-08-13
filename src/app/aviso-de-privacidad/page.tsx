@@ -126,9 +126,8 @@ export default function AvisoPrivacidadPage() {
                   <a href="mailto:contacto@promedicantequera.com" style={{ color: "#167589", textDecoration: "underline", fontWeight: 600 }}>
                     contacto@promedicantequera.com
                   </a>{" "}
-                  o al teléfono{" "}
-                  <a href="tel:9516887621" style={{ color: "#167589", textDecoration: "underline", fontWeight: 600 }}>
-                    951 688 7621
+                  <a href="tel:9513008285" style={{ color: "#167589", textDecoration: "underline", fontWeight: 600 }}>
+                    951 300 8285
                   </a>
                   , en días hábiles de 09:00 a 17:00 horas.
                 </p>

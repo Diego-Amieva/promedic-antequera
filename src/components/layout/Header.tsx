@@ -118,7 +118,7 @@ export default function Header() {
           <div className="flex items-center justify-end gap-2.5 sm:gap-3">
             {/* Botón WhatsApp */}
             <a
-              href="https://wa.me/529516887621"
+              href="https://wa.me/529513008285"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-cta-whatsapp"

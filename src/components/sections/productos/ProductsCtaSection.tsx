@@ -118,7 +118,7 @@ export default function ProductsCtaSection() {
             {/* WhatsApp — pill relleno oscuro con hover */}
             <a
               id="productos-cta-whatsapp"
-              href="https://wa.me/529516887621"
+              href="https://wa.me/529513008285"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Solicitar cotización por WhatsApp"

@@ -124,8 +124,8 @@ export default function TerminosPage() {
                     contacto@promedicantequera.com
                   </a>{" "}
                   | Teléfono:{" "}
-                  <a href="tel:9516887621" style={{ color: "#167589", textDecoration: "underline", fontWeight: 600 }}>
-                    951 688 7621
+                  <a href="tel:9513008285" style={{ color: "#167589", textDecoration: "underline", fontWeight: 600 }}>
+                    951 300 8285
                   </a>.
                 </p>
               </div>
