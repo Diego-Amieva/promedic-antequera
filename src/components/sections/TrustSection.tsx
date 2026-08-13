@@ -9,6 +9,7 @@ interface TrustPillar {
   description: string;
   image: string;
   alt: string;
+  containerClass?: string;
 }
 
 const PILLARS: TrustPillar[] = [
@@ -30,8 +31,9 @@ const PILLARS: TrustPillar[] = [
     id: 3,
     title: "Atención Humana Especializada",
     description: "Una experiencia de venta personalizada y adaptada a las necesidades específicas de tu institución médica.",
-    image: "/illustrations/Atencion_humana.png",
-    alt: "Doctor de pie sosteniendo un corazón rojo representando atención humana",
+    image: "/illustrations/Atencion_humana_especializada.png",
+    alt: "Mascota de Salud Total representando atención humana especializada",
+    containerClass: "max-h-[320px] md:max-h-[380px]",
   },
 ];
 
@@ -196,7 +198,7 @@ export default function TrustSection() {
                   }`}
                   aria-hidden={!isActive}
                 >
-                  <div className="relative w-full h-full max-w-[400px] max-h-[400px]">
+                  <div className={`relative w-full h-full max-w-[400px] max-h-[400px] ${pillar.containerClass || ""}`}>
                     <Image
                       src={pillar.image}
                       alt={pillar.alt}
