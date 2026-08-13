@@ -65,6 +65,8 @@ function ProductCardItem({ product }: { product: ProductCard }) {
         cursor: "default",
         height: "100%",
         boxSizing: "border-box",
+        border: "none",
+        outline: "none",
       }}
     >
       <h3
@@ -164,6 +166,8 @@ function MobileSlider() {
           scrollSnapType: "x mandatory",
           WebkitOverflowScrolling: "touch",
           scrollBehavior: "smooth",
+          padding: "16px 8px",
+          margin: "-16px -8px",
         }}
       >
         {PRODUCTS.map((product) => (
@@ -171,8 +175,9 @@ function MobileSlider() {
             key={product.id}
             style={{
               flex: "0 0 100%",
-              scrollSnapAlign: "start",
-              padding: "0 4px",
+              scrollSnapAlign: "center",
+              padding: "0 8px",
+              boxSizing: "border-box",
             }}
           >
             <ProductCardItem product={product} />
