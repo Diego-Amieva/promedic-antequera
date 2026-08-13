@@ -63,35 +63,44 @@ const FAQS: FaqItem[] = [
 
         <div className="pt-1">
           <p className="font-bold text-[#167589] mb-2">Canales de atención inmediata:</p>
-          <ul className="space-y-1.5 pl-5 marker:text-[#167589]" style={{ listStyleType: "disc" }}>
-            <li>
-              <span className="font-semibold text-slate-700">WhatsApp / Celular:</span>{" "}
-              <a
-                href="https://wa.me/529513008285"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#167589] font-semibold hover:underline"
-              >
-                951 300 8285
-              </a>
+          <ul className="space-y-2 pl-1">
+            <li className="flex items-start gap-2">
+              <span className="flex-shrink-0 select-none">💬</span>
+              <div>
+                <span className="font-semibold text-slate-700">WhatsApp / Celular:</span>{" "}
+                <a
+                  href="https://wa.me/529513008285"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#167589] font-bold hover:underline"
+                >
+                  951 300 8285
+                </a>
+              </div>
             </li>
-            <li>
-              <span className="font-semibold text-slate-700">Oficina:</span>{" "}
-              <a
-                href="tel:9513008285"
-                className="text-[#167589] font-semibold hover:underline"
-              >
-                951 300 8285
-              </a>
+            <li className="flex items-start gap-2">
+              <span className="flex-shrink-0 select-none">📞</span>
+              <div>
+                <span className="font-semibold text-slate-700">Oficina:</span>{" "}
+                <a
+                  href="tel:9516887621"
+                  className="text-[#167589] font-bold hover:underline"
+                >
+                  951 688 7621
+                </a>
+              </div>
             </li>
-            <li>
-              <span className="font-semibold text-slate-700">Correo:</span>{" "}
-              <a
-                href="mailto:contacto@promedicantequera.com"
-                className="text-[#167589] font-semibold hover:underline"
-              >
-                contacto@promedicantequera.com
-              </a>
+            <li className="flex items-start gap-2">
+              <span className="flex-shrink-0 select-none">✉️</span>
+              <div>
+                <span className="font-semibold text-slate-700">Correo:</span>{" "}
+                <a
+                  href="mailto:contacto@promedicantequera.com"
+                  className="text-[#167589] font-semibold hover:underline"
+                >
+                  contacto@promedicantequera.com
+                </a>
+              </div>
             </li>
           </ul>
         </div>
