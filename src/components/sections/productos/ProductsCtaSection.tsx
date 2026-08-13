@@ -142,7 +142,7 @@ export default function ProductsCtaSection() {
               Solicitar cotización por WhatsApp
             </a>
 
-            {/* Contáctanos — pill outlined blanco con hover que abre el modal de contacto */}
+            {/* Déjanos tus datos — pill outlined blanco con hover que abre el modal de contacto */}
             <button
               type="button"
               id="productos-cta-contacto"
@@ -153,13 +153,14 @@ export default function ProductsCtaSection() {
               className="btn-outline-cta"
             >
               <Image
-                src="/icons/Contacto.svg"
+                src="/icons/contact-book.svg"
                 alt=""
                 width={20}
                 height={20}
                 aria-hidden="true"
+                style={{ filter: "brightness(0) invert(1)" }}
               />
-              Contáctanos
+              Déjanos tus datos
             </button>
           </div>
         </div>
