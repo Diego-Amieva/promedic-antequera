@@ -369,7 +369,7 @@ export default function BrandCatalogSection() {
       id="marcas-catalogo"
       aria-labelledby="marcas-catalogo-heading"
       style={{
-        backgroundColor: "#f8fafc",
+        backgroundColor: "#ffffff",
         paddingTop: 80,
         paddingBottom: 96,
         overflow: "hidden",

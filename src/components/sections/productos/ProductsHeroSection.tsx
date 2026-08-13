@@ -196,7 +196,7 @@ export default function ProductsHeroSection() {
           className="w-full h-[50px] sm:h-[80px] lg:h-[110px]"
           aria-hidden="true"
         >
-          <path d="M0 110C480 34 960 34 1440 110V110H0V110Z" fill="#f8fafc" />
+          <path d="M0 110C480 34 960 34 1440 110V110H0V110Z" fill="#ffffff" />
         </svg>
       </div>
 

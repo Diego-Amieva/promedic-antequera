@@ -34,8 +34,8 @@ export default function ProductsCtaSection() {
       id="productos-cta"
       aria-labelledby="productos-cta-heading"
       style={{
-        /* Fondo gris #f8fafc para coincidir con la sección de marcas anterior */
-        backgroundColor: "#f8fafc",
+        /* Fondo blanco puro #ffffff */
+        backgroundColor: "#ffffff",
         /* Sin padding propio — dejamos que el gradiente llene hasta el fondo */
         paddingBottom: 0,
         overflow: "hidden",
