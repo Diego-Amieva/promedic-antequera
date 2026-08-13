@@ -370,3 +370,8 @@ header.legal-page .nav-capsule a:not(.active-nav-link):hover {
 .footer-legal-link:hover {
   color: #ffffff !important;
 }
+
+/* Mobile brands marquee — hide scrollbar across all browsers */
+.brands-mobile-track::-webkit-scrollbar {
+  display: none;
+}

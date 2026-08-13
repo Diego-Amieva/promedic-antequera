@@ -276,24 +276,6 @@ export default function ProductsSection() {
       className="relative bg-white overflow-hidden"
       style={{ paddingTop: "80px", paddingBottom: "96px" }}
     >
-      {/* Decorative blobs */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute", top: 0, right: 0, zIndex: 0,
-          width: "320px", height: "320px", borderRadius: "9999px",
-          background: "rgba(167,217,221,0.12)", filter: "blur(80px)",
-        }}
-      />
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute", bottom: 0, left: 0, zIndex: 0,
-          width: "400px", height: "400px", borderRadius: "9999px",
-          background: "rgba(22,117,137,0.06)", filter: "blur(80px)",
-        }}
-      />
-
       <div
         style={{
           position: "relative", zIndex: 1,

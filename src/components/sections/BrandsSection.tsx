@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useRef, useEffect, useCallback } from "react";
 
 interface BrandLogo {
   name: string;
@@ -31,6 +32,126 @@ const BRANDS_ROW2: BrandLogo[] = [
 
 const ALL_BRANDS_MARQUEE = [...BRANDS_ROW1, ...BRANDS_ROW2];
 
+// ── Mobile Marquee with pause-on-touch ─────────────────────────────────────
+function MobileMarquee() {
+  const trackRef = useRef<HTMLDivElement>(null);
+  // Current fractional scroll position driven by rAF
+  const posRef = useRef(0);
+  // Speed in px per frame (~60fps target)
+  const SPEED = 0.55;
+  const rafRef = useRef<number | null>(null);
+  const isPausedRef = useRef(false);
+  // Resume timeout id after pointer-up
+  const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const animate = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    if (!isPausedRef.current) {
+      const halfWidth = track.scrollWidth / 2;
+      posRef.current += SPEED;
+      // Seamless loop: once we've scrolled one half, reset to 0
+      if (posRef.current >= halfWidth) {
+        posRef.current = 0;
+      }
+      track.scrollLeft = posRef.current;
+    }
+
+    rafRef.current = requestAnimationFrame(animate);
+  }, []);
+
+  useEffect(() => {
+    // Sync posRef with current scrollLeft on mount so we start where we left off
+    if (trackRef.current) {
+      posRef.current = trackRef.current.scrollLeft;
+    }
+    rafRef.current = requestAnimationFrame(animate);
+    return () => {
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+      if (resumeTimerRef.current !== null) clearTimeout(resumeTimerRef.current);
+    };
+  }, [animate]);
+
+  // Pause auto-scroll while user is interacting
+  const pauseScroll = () => {
+    isPausedRef.current = true;
+    if (resumeTimerRef.current !== null) clearTimeout(resumeTimerRef.current);
+  };
+
+  // Resume auto-scroll 800ms after last touch/pointer-up
+  const resumeScroll = () => {
+    if (resumeTimerRef.current !== null) clearTimeout(resumeTimerRef.current);
+    resumeTimerRef.current = setTimeout(() => {
+      // Sync posRef with actual scrollLeft so animation picks up from where the user left off
+      if (trackRef.current) {
+        posRef.current = trackRef.current.scrollLeft;
+      }
+      isPausedRef.current = false;
+    }, 800);
+  };
+
+  return (
+    <div className="relative w-full py-4 md:hidden" aria-hidden="true">
+      {/* Gradient edge fades */}
+      <div className="absolute left-0 top-0 bottom-0 w-10 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+      {/* Scrollable track — overflow-x-auto allows free manual drag */}
+      <div
+        ref={trackRef}
+        onTouchStart={pauseScroll}
+        onTouchEnd={resumeScroll}
+        onPointerDown={pauseScroll}
+        onPointerUp={resumeScroll}
+        onPointerCancel={resumeScroll}
+        style={{
+          display: "flex",
+          gap: "48px",
+          alignItems: "center",
+          overflowX: "auto",
+          WebkitOverflowScrolling: "touch",
+          scrollbarWidth: "none",        /* Firefox */
+          msOverflowStyle: "none",       /* IE/Edge */
+          cursor: "grab",
+          userSelect: "none",
+        }}
+        // Hide WebKit scrollbar via inline style (CSS class alternative below)
+        className="brands-mobile-track"
+      >
+        {/* Quadruple the brands so there's always content ahead while looping */}
+        {[
+          ...ALL_BRANDS_MARQUEE,
+          ...ALL_BRANDS_MARQUEE,
+          ...ALL_BRANDS_MARQUEE,
+          ...ALL_BRANDS_MARQUEE,
+        ].map((brand, idx) => (
+          <div
+            key={idx}
+            style={{
+              position: "relative",
+              flexShrink: 0,
+              width: "104px",
+              height: "40px",
+              opacity: 0.6,
+            }}
+          >
+            <Image
+              src={brand.activePath}
+              alt={brand.name}
+              fill
+              sizes="104px"
+              className="object-contain"
+              draggable={false}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ── Section ──────────────────────────────────────────────────────────────────
 export default function BrandsSection() {
   return (
     <section
@@ -62,27 +183,8 @@ export default function BrandsSection() {
           </h2>
         </div>
 
-        {/* ── MOBILE VIEW: Infinite Scroll Marquee ── */}
-        <div className="relative w-full overflow-hidden py-4 md:hidden" aria-hidden="true">
-          {/* Gradient shadows left & right for transition depth */}
-          <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
-
-          {/* Double list of logos for infinite seamless loop */}
-          <div className="flex w-[200%] gap-12 items-center animate-marquee">
-            {[...ALL_BRANDS_MARQUEE, ...ALL_BRANDS_MARQUEE].map((brand, idx) => (
-              <div key={idx} className="relative flex-shrink-0 w-28 h-10 opacity-60">
-                <Image
-                  src={brand.activePath}
-                  alt={brand.name}
-                  fill
-                  sizes="112px"
-                  className="object-contain"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* ── MOBILE VIEW: Auto-scroll marquee + free drag ── */}
+        <MobileMarquee />
 
         {/* ── DESKTOP VIEW: 2 rows of logos ── */}
         <div className="hidden md:flex flex-col gap-10 mb-16">
