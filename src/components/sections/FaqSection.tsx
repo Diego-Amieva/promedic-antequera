@@ -571,10 +571,19 @@ export default function FaqSection() {
                     </svg>
                     Enviar WhatsApp
                   </a>
-                  <a href="#contacto" id="faq-cta-contacto-mobile" aria-label="Déjanos tus datos" className="btn-outline-cta" style={{ height: "48px", justifyContent: "center" }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      window.dispatchEvent(new CustomEvent("open-contact-modal"));
+                    }}
+                    id="faq-cta-contacto-mobile"
+                    aria-label="Déjanos tus datos"
+                    className="btn-outline-cta"
+                    style={{ height: "48px", justifyContent: "center", width: "100%", cursor: "pointer" }}
+                  >
                     <Image src="/icons/contact-book.svg" alt="" width={18} height={18} aria-hidden="true" style={{ filter: "brightness(0) invert(1)", flexShrink: 0 }} />
                     Déjanos tus datos
-                  </a>
+                  </button>
                 </div>
               </div>
 
@@ -595,10 +604,19 @@ export default function FaqSection() {
                       </svg>
                       Enviar WhatsApp
                     </a>
-                    <a href="#contacto" id="faq-cta-contacto" aria-label="Ir al formulario de contacto — Déjanos tus datos" className="btn-outline-cta" style={{ height: "48px" }}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        window.dispatchEvent(new CustomEvent("open-contact-modal"));
+                      }}
+                      id="faq-cta-contacto"
+                      aria-label="Ir al formulario de contacto — Déjanos tus datos"
+                      className="btn-outline-cta"
+                      style={{ height: "48px", cursor: "pointer" }}
+                    >
                       <Image src="/icons/contact-book.svg" alt="" width={18} height={18} aria-hidden="true" style={{ filter: "brightness(0) invert(1)", flexShrink: 0 }} />
                       Déjanos tus datos
-                    </a>
+                    </button>
                   </div>
                 </div>
 
