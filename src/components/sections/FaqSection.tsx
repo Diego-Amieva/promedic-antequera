@@ -171,22 +171,67 @@ const FAQS: FaqItem[] = [
     id: 4,
     question: "¿Cómo solicito una cotización formal para mi clínica u hospital?",
     answer: (
-      <div>
+      <div className="space-y-4">
         <p>
-          Para cotizaciones, puedes contactarnos directamente a través de nuestro{" "}
-          <a
-            href="https://wa.me/529513008285"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#167589] font-semibold hover:underline"
-          >
-            WhatsApp corporativo
-          </a>{" "}
-          para atención inmediata, o llenando el formulario de contacto{" "}
-          <a href="/#contacto" className="text-[#167589] font-semibold hover:underline">
-            aquí
-          </a>
-          . Uno de nuestros asesores especializados preparará una propuesta comercial a la medida de las necesidades de tu institución en un plazo no mayor a 24 horas hábiles.
+          Atendemos solicitudes tanto para compras minoristas como para precios especiales a mayoreo e institucionales. Puedes solicitar tu propuesta comercial a través de cualquiera de nuestros canales:
+        </p>
+
+        <ul className="space-y-2.5 pl-1">
+          <li className="flex items-start gap-2">
+            <span className="flex-shrink-0 select-none">💬</span>
+            <div>
+              <a
+                href="https://wa.me/529513008285"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#167589] font-bold hover:underline"
+              >
+                WhatsApp Corporativo
+              </a>
+              <span className="text-slate-600">: Para respuesta y atención comercial inmediata.</span>
+            </div>
+          </li>
+
+          <li className="flex items-start gap-2">
+            <span className="flex-shrink-0 select-none">✉️</span>
+            <div>
+              <span className="font-bold text-slate-800">Correo Electrónico:</span>{" "}
+              <span className="text-slate-600">Escríbenos directamente a</span>{" "}
+              <a
+                href="mailto:contacto@promedicantequera.com"
+                className="text-[#167589] font-bold hover:underline"
+              >
+                contacto@promedicantequera.com
+              </a>{" "}
+              <span className="text-slate-600">indicando el listado de insumos y volúmenes requeridos.</span>
+            </div>
+          </li>
+
+          <li className="flex items-start gap-2">
+            <span className="flex-shrink-0 select-none">📝</span>
+            <div>
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new CustomEvent("open-contact-modal"))}
+                className="text-[#167589] font-bold hover:underline inline-baseline text-left p-0 bg-transparent border-0 cursor-pointer"
+              >
+                Formulario
+              </button>
+              <span className="text-slate-600">: Llena nuestro</span>{" "}
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new CustomEvent("open-contact-modal"))}
+                className="text-[#167589] font-semibold hover:underline inline-baseline text-left p-0 bg-transparent border-0 cursor-pointer"
+              >
+                formulario de contacto
+              </button>{" "}
+              <span className="text-slate-600">indicando los datos de tu institución.</span>
+            </div>
+          </li>
+        </ul>
+
+        <p className="pt-1">
+          Uno de nuestros asesores especializados preparará una propuesta a la medida de tus necesidades a la brevedad.
         </p>
       </div>
     ),
