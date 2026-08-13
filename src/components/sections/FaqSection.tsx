@@ -162,12 +162,20 @@ const FAQS: FaqItem[] = [
 
         <div className="pt-1">
           <p className="font-bold text-[#167589] mb-2">Políticas de Facturación:</p>
-          <ul className="space-y-2 pl-5 marker:text-[#167589]" style={{ listStyleType: "disc" }}>
-            <li>
-              <strong className="text-slate-800">Cierre de mes:</strong> Por disposiciones fiscales del SAT, las facturas deben emitirse dentro del mismo mes en que se realizó la compra. No será posible emitir comprobantes de meses anteriores.
+          <ul className="space-y-2.5 pl-1">
+            <li className="flex items-start gap-2">
+              <span className="flex-shrink-0 select-none">📅</span>
+              <div>
+                <strong className="text-slate-800">Cierre de mes:</strong>{" "}
+                <span className="text-slate-600">Por disposiciones fiscales del SAT, las facturas deben emitirse dentro del mismo mes en que se realizó la compra. No será posible emitir comprobantes de meses anteriores.</span>
+              </div>
             </li>
-            <li>
-              <strong className="text-slate-800">Tiempo de entrega:</strong> Una vez recibida tu información completa, tu factura será enviada a tu correo en un lapso de 24 a 48 horas hábiles.
+            <li className="flex items-start gap-2">
+              <span className="flex-shrink-0 select-none">⏱️</span>
+              <div>
+                <strong className="text-slate-800">Tiempo de entrega:</strong>{" "}
+                <span className="text-slate-600">Una vez recibida tu información completa, tu factura será enviada a tu correo en un lapso de 24 a 48 horas hábiles.</span>
+              </div>
             </li>
           </ul>
         </div>
