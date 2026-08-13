@@ -13,7 +13,7 @@ const NAV_LINKS = [
 ];
 
 // Pages with white backgrounds where the navbar needs to adapt
-const LEGAL_PAGES = ["/terminos-y-condiciones", "/aviso-de-privacidad"];
+const LEGAL_PAGES = ["/terminos-y-condiciones", "/aviso-de-privacidad", "/politica-de-cookies"];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
