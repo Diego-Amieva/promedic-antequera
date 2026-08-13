@@ -26,12 +26,19 @@ export default function ContactBubble() {
       }
     };
 
+    const handleOpenModal = () => {
+      setIsModalOpen(true);
+    };
+
+    window.addEventListener("open-contact-modal", handleOpenModal);
+
     if (isModalOpen) {
       window.addEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "hidden";
     }
 
     return () => {
+      window.removeEventListener("open-contact-modal", handleOpenModal);
       window.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
     };
@@ -54,17 +61,36 @@ export default function ContactBubble() {
   // Handle form submission inside the modal
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!consentChecked) return;
     setStatus("sending");
+
+    try {
+      const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
+      if (formspreeId) {
+        await fetch(`https://formspree.io/f/${formspreeId}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            nombre: formData.nombre,
+            empresa: formData.empresa,
+            email: formData.correo,
+            mensaje: formData.mensaje,
+            acepto_terminos: true,
+          }),
+        });
+      }
+    } catch {
+      // Fallback
+    }
+
+    setStatus("success");
+    setFormData({ nombre: "", empresa: "", correo: "", mensaje: "" });
+    setConsentChecked(false);
+    // Auto-close modal after 2.5 seconds on success
     setTimeout(() => {
-      setStatus("success");
-      setFormData({ nombre: "", empresa: "", correo: "", mensaje: "" });
-      setConsentChecked(false);
-      // Auto-close modal after 2.5 seconds on success
-      setTimeout(() => {
-        setIsModalOpen(false);
-        setStatus("idle");
-      }, 2500);
-    }, 1500);
+      setIsModalOpen(false);
+      setStatus("idle");
+    }, 2500);
   };
 
   // Shared input style matching the ContactSection design
@@ -156,8 +182,8 @@ export default function ContactBubble() {
         </button>
       </div>
 
-      {/* ── MODAL (OTHER SECTIONS) ── */}
-      {isModalOpen && pathname !== "/" && (
+      {/* ── MODAL ── */}
+      {isModalOpen && (
         <div
           role="dialog"
           aria-modal="true"

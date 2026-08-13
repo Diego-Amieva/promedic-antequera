@@ -142,11 +142,14 @@ export default function ProductsCtaSection() {
               Solicitar cotización por WhatsApp
             </a>
 
-            {/* Contáctanos — pill outlined blanco con hover */}
-            <a
+            {/* Contáctanos — pill outlined blanco con hover que abre el modal de contacto */}
+            <button
+              type="button"
               id="productos-cta-contacto"
-              href="/#contacto"
-              aria-label="Ir al formulario de contacto"
+              onClick={() => {
+                window.dispatchEvent(new CustomEvent("open-contact-modal"));
+              }}
+              aria-label="Abrir formulario de contacto"
               className="btn-outline-cta"
             >
               <Image
@@ -157,7 +160,7 @@ export default function ProductsCtaSection() {
                 aria-hidden="true"
               />
               Contáctanos
-            </a>
+            </button>
           </div>
         </div>
       </div>
