@@ -341,6 +341,13 @@ header.legal-page .nav-capsule a:not(.active-nav-link):hover {
   }
 }
 
+/* Products Section — Tarjeta shadow (desktop only, avoid mobile overflow clipping) */
+@media (min-width: 768px) {
+  .product-card {
+    box-shadow: 0 4px 24px rgba(22, 117, 137, 0.12);
+  }
+}
+
 /* Products Section — Tarjeta hover */
 .product-card:hover {
   transform: translateY(-6px);

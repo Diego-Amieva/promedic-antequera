@@ -60,7 +60,6 @@ function ProductCardItem({ product }: { product: ProductCard }) {
         flexDirection: "column",
         alignItems: "center",
         textAlign: "center",
-        boxShadow: "0 4px 24px rgba(22,117,137,0.12)",
         transition: "transform 0.35s ease, box-shadow 0.35s ease",
         cursor: "default",
         height: "100%",
@@ -166,8 +165,6 @@ function MobileSlider() {
           scrollSnapType: "x mandatory",
           WebkitOverflowScrolling: "touch",
           scrollBehavior: "smooth",
-          padding: "16px 8px",
-          margin: "-16px -8px",
         }}
       >
         {PRODUCTS.map((product) => (
@@ -175,9 +172,7 @@ function MobileSlider() {
             key={product.id}
             style={{
               flex: "0 0 100%",
-              scrollSnapAlign: "center",
-              padding: "0 8px",
-              boxSizing: "border-box",
+              scrollSnapAlign: "start",
             }}
           >
             <ProductCardItem product={product} />
