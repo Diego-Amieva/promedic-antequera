@@ -181,7 +181,14 @@ export default function Footer() {
             Términos y Condiciones
           </Link>
           <Link href="/politica-de-cookies" className="footer-legal-link" style={{ color: '#167589', fontSize: '0.75rem', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap' }}>Política de Cookies</Link>
-          <a href="#" className="footer-legal-link" style={{ color: '#167589', fontSize: '0.75rem', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap' }}>Preferencia de Cookies</a>
+          <button
+            id="footer-cookie-prefs-desktop"
+            onClick={() => window.dispatchEvent(new CustomEvent("open-cookie-modal"))}
+            className="footer-legal-link"
+            style={{ background: "none", border: "none", padding: 0, color: "#167589", fontSize: "0.75rem", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap", cursor: "pointer" }}
+          >
+            Preferencia de Cookies
+          </button>
         </nav>
         <p style={{ color: 'rgba(255,255,255,0.80)', fontSize: '0.75rem', fontWeight: 400, margin: 0, whiteSpace: 'nowrap' }}>
           Copyright © {currentYear} Promedic Antequera - Todos los derechos reservados.
@@ -215,7 +222,14 @@ export default function Footer() {
             Términos y Condiciones
           </Link>
           <Link href="/politica-de-cookies" className="footer-legal-link" style={{ color: '#167589', fontSize: '0.62rem', fontWeight: 600, textDecoration: 'none' }}>Política de Cookies</Link>
-          <a href="#" className="footer-legal-link" style={{ color: '#167589', fontSize: '0.62rem', fontWeight: 600, textDecoration: 'none' }}>Preferencia de Cookies</a>
+          <button
+            id="footer-cookie-prefs-mobile"
+            onClick={() => window.dispatchEvent(new CustomEvent("open-cookie-modal"))}
+            className="footer-legal-link"
+            style={{ background: "none", border: "none", padding: 0, color: "#167589", fontSize: "0.62rem", fontWeight: 600, textDecoration: "none", cursor: "pointer" }}
+          >
+            Preferencia de Cookies
+          </button>
         </nav>
         <p style={{ color: 'rgba(255,255,255,0.80)', fontSize: '0.68rem', fontWeight: 400, margin: 0 }}>
           Copyright © {currentYear} Promedic Antequera - Todos los derechos reservados.

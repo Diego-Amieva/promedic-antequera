@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import ContactBubble from "@/components/layout/ContactBubble";
+import CookieConsent from "@/components/layout/CookieConsent";
 
 /* ─────────────────────────────────────────
    Font: Montserrat via next/font/google
@@ -72,6 +73,7 @@ export default function RootLayout({
       <body className="antialiased">
         {children}
         <ContactBubble />
+        <CookieConsent />
       </body>
     </html>
   );
