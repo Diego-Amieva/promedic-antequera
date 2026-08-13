@@ -195,11 +195,16 @@ const FAQS: FaqItem[] = [
           <li className="flex items-start gap-2">
             <span className="flex-shrink-0 select-none">✉️</span>
             <div>
-              <span className="font-bold text-slate-800">Correo Electrónico:</span>{" "}
-              <span className="text-slate-600">Escríbenos directamente a</span>{" "}
               <a
                 href="mailto:contacto@promedicantequera.com"
                 className="text-[#167589] font-bold hover:underline"
+              >
+                Correo Electrónico
+              </a>
+              <span className="text-slate-600">: Escríbenos directamente a</span>{" "}
+              <a
+                href="mailto:contacto@promedicantequera.com"
+                className="text-[#167589] font-semibold hover:underline"
               >
                 contacto@promedicantequera.com
               </a>{" "}
