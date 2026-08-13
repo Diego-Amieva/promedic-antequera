@@ -92,7 +92,7 @@ export default function PoliticaCookiesPage() {
             </p>
 
             <p style={{ margin: "0 0 36px", fontSize: "0.925rem", color: "#475569", lineHeight: 1.8 }}>
-              El objetivo de este documento es informar de manera transparente sobre el uso, tipo y finalidad de las cookies y tecnologías de rastreo empleadas en el sitio web <strong style={{ color: "#0f172a" }}>promedicantequera.com</strong> (en adelante, &quot;el Sitio&quot;).
+              El objetivo de este documento es informar de manera transparente sobre el uso, tipo y finalidad de las cookies y tecnologías de rastreo empleadas en el sitio web <strong style={{ color: "#0f172a" }}>promedicantequera.com</strong>{" "}(en adelante, &quot;el Sitio&quot;).
             </p>
 
             {/* Section 1 */}
