@@ -484,7 +484,6 @@ export default function PoliticaCookiesPage() {
                   >
                     contacto@promedicantequera.com
                   </a>
-                  .
                 </p>
               </div>
             </section>
