@@ -10,7 +10,7 @@ interface BrandLogo {
   isCutimed?: boolean;
 }
 
-// Row 1: 3M, BSN Medical, Cutimed, Ambiderm
+// Row 1: 3M, BSN Medical, Cutimed
 const BRANDS_ROW1: BrandLogo[] = [
   { name: "3M", inactivePath: "/brands/3M.svg", activePath: "/brands/3M.svg" },
   { name: "BSN medical", inactivePath: "/brands/Bsn-medical.svg", activePath: "/brands/Bsn-medical.svg" },
@@ -20,13 +20,12 @@ const BRANDS_ROW1: BrandLogo[] = [
     activePath: "/brands/cutimed_active.svg",
     isCutimed: true,
   },
-  { name: "AMBIDERM", inactivePath: "/brands/Ambiderm.svg", activePath: "/brands/Ambiderm.svg" },
 ];
 
-// Row 2: B.Braun, Nipro, IPM
+// Row 2: B.Braun, AMBIDERM, IPM
 const BRANDS_ROW2: BrandLogo[] = [
   { name: "B. Braun", inactivePath: "/brands/Bbraun.svg", activePath: "/brands/Bbraun.svg" },
-  { name: "Nipro", inactivePath: "/brands/nipro.svg", activePath: "/brands/nipro.svg" },
+  { name: "AMBIDERM", inactivePath: "/brands/Ambiderm.svg", activePath: "/brands/Ambiderm.svg" },
   { name: "IPM", inactivePath: "/brands/IPM.svg", activePath: "/brands/IPM.svg" },
 ];
 
@@ -186,12 +185,12 @@ export default function BrandsSection() {
         {/* ── MOBILE VIEW: Auto-scroll marquee + free drag ── */}
         <MobileMarquee />
 
-        {/* ── DESKTOP VIEW: 2 rows of logos ── */}
-        <div className="hidden md:flex flex-col gap-10 mb-16">
-          {/* Row 1: 4 logos — 3M, BSN Medical, Cutimed, Ambiderm */}
-          <div className="grid grid-cols-4 gap-8 items-center justify-items-center">
+        {/* ── DESKTOP VIEW: 2 rows of 3 logos ── */}
+        <div className="hidden md:flex flex-col gap-12 mb-16">
+          {/* Row 1: 3 logos — 3M, BSN Medical, Cutimed */}
+          <div className="grid grid-cols-3 gap-8 items-center justify-items-center">
             {BRANDS_ROW1.map((brand) => (
-              <div key={brand.name} className="group relative w-36 h-16 flex items-center justify-center">
+              <div key={brand.name} className="group relative w-40 h-16 flex items-center justify-center">
                 {brand.isCutimed ? (
                   /* Cutimed Exception: dynamic image swap to protect native gradients */
                   <>
@@ -199,7 +198,7 @@ export default function BrandsSection() {
                       src={brand.inactivePath}
                       alt={brand.name}
                       fill
-                      sizes="144px"
+                      sizes="160px"
                       className="object-contain transition-opacity duration-300 opacity-100 group-hover:opacity-0"
                       loading="lazy"
                     />
@@ -207,7 +206,7 @@ export default function BrandsSection() {
                       src={brand.activePath}
                       alt={brand.name}
                       fill
-                      sizes="144px"
+                      sizes="160px"
                       className="object-contain absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
                       loading="lazy"
                     />
@@ -218,7 +217,7 @@ export default function BrandsSection() {
                     src={brand.activePath}
                     alt={brand.name}
                     fill
-                    sizes="144px"
+                    sizes="160px"
                     className="object-contain filter grayscale brightness-125 contrast-75 group-hover:grayscale-0 group-hover:brightness-100 group-hover:contrast-100 transition-all duration-300"
                     loading="lazy"
                   />
@@ -227,15 +226,15 @@ export default function BrandsSection() {
             ))}
           </div>
 
-          {/* Row 2: 3 logos — B.Braun, Nipro, IPM (centered) */}
-          <div className="flex justify-center gap-16 items-center">
+          {/* Row 2: 3 logos — B.Braun, AMBIDERM, IPM */}
+          <div className="grid grid-cols-3 gap-8 items-center justify-items-center">
             {BRANDS_ROW2.map((brand) => (
-              <div key={brand.name} className="group relative w-36 h-16 flex items-center justify-center">
+              <div key={brand.name} className="group relative w-40 h-16 flex items-center justify-center">
                 <Image
                   src={brand.activePath}
                   alt={brand.name}
                   fill
-                  sizes="144px"
+                  sizes="160px"
                   className="object-contain filter grayscale brightness-125 contrast-75 group-hover:grayscale-0 group-hover:brightness-100 group-hover:contrast-100 transition-all duration-300"
                   loading="lazy"
                 />

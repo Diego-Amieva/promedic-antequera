@@ -45,7 +45,7 @@ export default function AboutCtaSection() {
             }}
           >
             <Image
-              src="/illustrations/Contact_Products.png"
+              src="/illustrations/Calidad_certificada.png"
               alt="Ilustración 3D de médico con hospital y suministros médicos"
               fill
               sizes="(max-width: 640px) 260px, 340px"
