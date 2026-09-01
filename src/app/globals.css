@@ -77,6 +77,45 @@ body {
   100% { transform: translateX(-50%); }
 }
 
+/* ── Nosotros Hero — Animated Bubbles ── */
+@keyframes bubble-float {
+  0%   { transform: translateY(0) translateX(0) scale(1);   opacity: 0.18; }
+  25%  { transform: translateY(-60px) translateX(20px) scale(1.05); opacity: 0.28; }
+  50%  { transform: translateY(-120px) translateX(-15px) scale(0.95); opacity: 0.22; }
+  75%  { transform: translateY(-80px) translateX(25px) scale(1.08); opacity: 0.30; }
+  100% { transform: translateY(0) translateX(0) scale(1);   opacity: 0.18; }
+}
+
+@keyframes bubble-pulse {
+  0%, 100% { transform: scale(1);   opacity: 0.15; }
+  50%      { transform: scale(1.15); opacity: 0.25; }
+}
+
+@keyframes bubble-drift {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  33%  { transform: translate(30px, -50px) rotate(120deg); }
+  66%  { transform: translate(-20px, -100px) rotate(240deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+/* Stat counter shimmer entrance */
+@keyframes counter-enter {
+  from { opacity: 0; transform: translateY(16px) scale(0.92); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-counter-enter {
+  animation: counter-enter 0.6s ease-out both;
+}
+
+.animate-counter-enter-delay-1 {
+  animation: counter-enter 0.6s ease-out 0.15s both;
+}
+
+.animate-counter-enter-delay-2 {
+  animation: counter-enter 0.6s ease-out 0.3s both;
+}
+
 /* Fade-in for hero content */
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(24px); }
