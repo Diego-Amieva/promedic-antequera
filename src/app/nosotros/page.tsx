@@ -3,6 +3,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import AboutHeroSection from "@/components/sections/nosotros/AboutHeroSection";
 import MissionVisionSection from "@/components/sections/nosotros/MissionVisionSection";
+import TimelineHistory from "@/components/TimelineHistory";
 import QualityPolicySection from "@/components/sections/nosotros/QualityPolicySection";
 import ValuesSection from "@/components/sections/nosotros/ValuesSection";
 import AboutCtaSection from "@/components/sections/nosotros/AboutCtaSection";
@@ -37,6 +38,9 @@ export default function NosotrosPage() {
 
         {/* Mission & Vision — Dual glassmorphism cards + lab image */}
         <MissionVisionSection />
+
+        {/* Interactive History Timeline — Stepper & Milestones */}
+        <TimelineHistory />
 
         {/* Quality Policy — Tinted background + 3 pillars */}
         <QualityPolicySection />
