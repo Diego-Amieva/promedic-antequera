@@ -36,7 +36,7 @@ const BUBBLES: Bubble[] = [
 ];
 
 const STATS = [
-  { value: "7+",   label: "Años de experiencia", delayClass: "animate-counter-enter" },
+  { value: "+17",  label: "Años de experiencia", delayClass: "animate-counter-enter" },
   { value: "6",    label: "Marcas certificadas",  delayClass: "animate-counter-enter-delay-1" },
   { value: "500+", label: "Instituciones atendidas", delayClass: "animate-counter-enter-delay-2" },
 ];
