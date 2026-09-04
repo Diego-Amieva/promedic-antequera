@@ -149,7 +149,7 @@ export default function TimelineHistory() {
             style={{
               fontSize: "clamp(2rem, 4vw, 3rem)",
               fontWeight: 800,
-              color: "#0f172a",
+              color: "#167589",
               letterSpacing: "-0.02em",
               lineHeight: 1.2,
               maxWidth: "820px",
